@@ -1,31 +1,46 @@
-import React from "react";
-import { Switch, Route, Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import LoginPage from "./components/LoginPage";
+import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import LoginPage from "./components/LoginPage";
 import CoinGamePage from "./components/CoinGamePage";
 import DoorGamePage from "./components/DoorGamePage";
 import NumberGamePage from "./components/NumberGamePage";
-import WinnerPage from "./components/WinnerPage";
+import Winner from "./components/Winner";
 import TryAgainPage from "./components/TryAgainPage";
-
-import store from "./store";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/home" component={HomePage} />
-          <Route exact path="/coin-game" component={CoinGamePage} />
-          <Route exact path="/door-game" component={DoorGamePage} />
-          <Route exact path="/number-game" component={NumberGamePage} />
-          <Route exact path="/winner" component={WinnerPage} />
-          <Route exact path="/try-again" component={TryAgainPage} />
-        </Switch>
-      </Router>
-    </Provider>
+    <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/coin-game">Coin Game</Link>
+          </li>
+          <li>
+            <Link to="/door-game">Door Game</Link>
+          </li>
+          <li>
+            <Link to="/number-game">Number Game</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/coin-game" element={<CoinGamePage />} />
+        <Route path="/door-game" element={<DoorGamePage />} />
+        <Route path="/number-game" element={<NumberGamePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/winner" element={<Winner />} />
+        <Route path="/try-again" element={<TryAgainPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
