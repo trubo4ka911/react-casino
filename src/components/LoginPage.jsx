@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { updateBalance } from '../redux';
+import { useNavigate } from 'react-router-dom';
+import { updateBalance } from '../redux/gameHistorySlice';
 
 function LoginPage() {
   const [name, setName] = useState('');
   const [deposit, setDeposit] = useState(0);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onNameChange = (e) => {
     setName(e.target.value);
@@ -19,7 +19,7 @@ function LoginPage() {
 
   const onSubmit = () => {
     dispatch(updateBalance(deposit));
-    history.push('/home');
+    navigate('/home');
   };
 
   return (

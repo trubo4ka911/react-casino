@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { addGameToHistory, updateBalance } from '../redux';
+import { useNavigate } from 'react-router-dom';
+import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 
 function DoorGamePage() {
   const [selectedDoor, setSelectedDoor] = useState(null);
   const [result, setResult] = useState(null);
   const [isOffered, setIsOffered] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const balance = useSelector((state) => state.balance);
 
   const doors = ['A', 'B', 'C'];
@@ -48,7 +48,7 @@ function DoorGamePage() {
   };
 
   const onEndGame = () => {
-    history.push('/home');
+    navigate('/home');
   };
 
   return (

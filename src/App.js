@@ -4,7 +4,7 @@ import LoginPage from "./components/LoginPage";
 import CoinGamePage from "./components/CoinGamePage";
 import DoorGamePage from "./components/DoorGamePage";
 import NumberGamePage from "./components/NumberGamePage";
-import Winner from "./components/Winner";
+import WinnerPage from "./components/WinnerPage";
 import TryAgainPage from "./components/TryAgainPage";
 import NotFoundPage from "./components/NotFoundPage";
 
@@ -36,7 +36,7 @@ function App() {
         <Route path="/door-game" element={<DoorGamePage />} />
         <Route path="/number-game" element={<NumberGamePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/winner" element={<Winner />} />
+        <Route path="/winner" element={<WinnerPage />} />
         <Route path="/try-again" element={<TryAgainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

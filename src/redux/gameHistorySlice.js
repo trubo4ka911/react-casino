@@ -14,9 +14,13 @@ const gameHistorySlice = createSlice({
     clearHistory: (state) => {
       state.history = [];
     },
+    updateBalance: (state, action) => {
+      state.balance = action.payload;
+    },
   },
 });
 
-export const { addGameToHistory, clearHistory } = gameHistorySlice.actions;
+export const { addGameToHistory, clearHistory, updateBalance } =
+  gameHistorySlice.actions;
 
 export default gameHistorySlice.reducer;

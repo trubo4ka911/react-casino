@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { addGameToHistory, updateBalance } from '../redux';
+import { useNavigate } from 'react-router-dom';
+import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 
 function CoinGamePage() {
   const [selectedSide, setSelectedSide] = useState('');
   const [result, setResult] = useState(null);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const balance = useSelector((state) => state.balance);
 
   const onSideSelected = (side) => {
@@ -33,7 +33,7 @@ function CoinGamePage() {
   };
 
   const onEndGame = () => {
-    history.push('/home');
+    navigate('/home');
   };
 
   return (
@@ -68,4 +68,3 @@ function CoinGamePage() {
 }
 
 export default CoinGamePage;
-
