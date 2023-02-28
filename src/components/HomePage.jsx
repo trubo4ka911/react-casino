@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function HomePage() {
+function HomePage(props) {
   const balance = useSelector((state) => state.balance);
   const gameHistory = useSelector((state) => state.gameHistory);
   return (
     <div>
-      <h2>Welcome to the Game Platform, your balance is {balance}.</h2>
+      <h2>Your balance: {props.balance}</h2>
+
       <h3>Game History:</h3>
       {gameHistory.length > 0 ? (
         <ul>
