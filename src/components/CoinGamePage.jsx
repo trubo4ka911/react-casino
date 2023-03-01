@@ -7,6 +7,10 @@ import "../sass/CoinGamePage.scss";
 function CoinGamePage() {
   const [selectedSide, setSelectedSide] = useState('');
   const [result, setResult] = useState(null);
+  const [winningSide, setWinningSide] = useState(null);
+
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const balance = useSelector((state) => state.balance);
@@ -16,8 +20,9 @@ function CoinGamePage() {
   };
 
   const onPlay = () => {
-    const winningSide = Math.random() < 0.5 ? 'heads' : 'tails';
-    if (selectedSide === winningSide) {
+    const randomSide = Math.random() < 0.5 ? 'heads' : 'tails';
+    setWinningSide(randomSide);
+    if (selectedSide === randomSide) {
       dispatch(updateBalance(balance + 10));
       dispatch(addGameToHistory({ game: 'Coin', result: 'win' }));
       setResult('win');
@@ -27,6 +32,8 @@ function CoinGamePage() {
       setResult('lose');
     }
   };
+  
+  
 
   const onTryAgain = () => {
     setSelectedSide('');
