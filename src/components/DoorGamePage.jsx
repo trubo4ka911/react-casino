@@ -8,6 +8,8 @@ function DoorGamePage() {
   const [selectedDoor, setSelectedDoor] = useState(null);
   const [result, setResult] = useState(null);
   const [isOffered, setIsOffered] = useState(false);
+  const [offeredDoor, setOfferedDoor] = useState(null);
+  const [winningDoor, setWinningDoor] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const balance = useSelector((state) => state.balance);
@@ -23,7 +25,10 @@ function DoorGamePage() {
     const remainingDoors = doors.filter((door) => door !== selectedDoor && door !== winningDoor);
     const offeredDoor = remainingDoors[Math.floor(Math.random() * remainingDoors.length)];
     setIsOffered(true);
+    setOfferedDoor(offeredDoor);
+    setWinningDoor(winningDoor);
   };
+  
 
   const onOfferAccepted = () => {
     const winningDoor = doors[Math.floor(Math.random() * doors.length)];
