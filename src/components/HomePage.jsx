@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import "../sass/HomePage.scss";
 
 function HomePage(props) {
   const balance = useSelector((state) => state.balance);
   const gameHistory = useSelector((state) => state.gameHistory);
   return (
-    <div>
+    <div className='home-page'>
       <h2>Your balance: {props.balance}</h2>
 
       <h3>Game History:</h3>

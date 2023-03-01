@@ -1,0 +1,47 @@
+.door-game-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.door-game-page h2 {
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+.door-game-page .door-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.door-game-page .door-game-container img {
+  height: 300px;
+}
+.door-game-page .door-game-container .door {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 150px;
+  margin: 2rem;
+  width: 150px;
+  transition: all 0.3s ease-in-out;
+}
+.door-game-page .door-game-container .door.open {
+  background-color: #2196f3;
+  color: #fff;
+  cursor: default;
+  border-color: #fff;
+}
+.door-game-page .door-game-container .door:hover:not(.open) {
+  background-color: #2196f3;
+  color: #fff;
+}/*# sourceMappingURL=DoorGamePage.css.map */

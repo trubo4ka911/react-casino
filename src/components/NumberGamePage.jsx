@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import "../sass/NumberGamePage.scss";
 
 function NumberGamePage() {
   const [guess, setGuess] = useState('');
@@ -40,7 +41,7 @@ function NumberGamePage() {
   };
 
   return (
-    <div>
+    <div className='number-game-page'>
       <h2>Number Game</h2>
       {result === null ? (
         <div>

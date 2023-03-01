@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import "./sass/styles.scss";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import CoinGamePage from "./components/CoinGamePage";
@@ -10,7 +11,7 @@ import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
-    <>
+    <div className="game-background">
       <nav>
         <ul>
           <li>
@@ -40,7 +41,7 @@ function App() {
         <Route path="/try-again" element={<TryAgainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

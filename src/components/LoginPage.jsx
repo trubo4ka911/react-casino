@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateBalance } from '../redux/gameHistorySlice';
+import "../sass/LoginPage.scss";
 
 function LoginPage() {
   const [name, setName] = useState('');
@@ -25,7 +26,7 @@ function LoginPage() {
   
 
   return (
-    <div>
+    <div className="login-page" >
       <h2>Welcome to the Game Platform!</h2>
       <form>
         <label>
@@ -38,7 +39,7 @@ function LoginPage() {
           <input type="number" value={deposit} onChange={onDepositChange} />
         </label>
         <br />
-        <button type="submit" disabled={!name || deposit < 1}>
+        <button type="submit" disabled={!name || deposit < 1} onClick={onSubmit}>
   Start
 </button>
       </form>

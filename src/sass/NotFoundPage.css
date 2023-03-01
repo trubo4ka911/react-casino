@@ -1,0 +1,34 @@
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.not-found-page h1 {
+  font-size: 3rem;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+.not-found-page p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.not-found-page .image-container {
+  margin-top: 2rem;
+  width: 50%;
+  max-width: 400px;
+}
+.not-found-page .image-container img {
+  width: 100%;
+  height: auto;
+}
+.not-found-page .home-link {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #3f51b5;
+}
+.not-found-page .home-link:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=NotFoundPage.css.map */

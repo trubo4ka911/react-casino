@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import "../sass/DoorGamePage.scss";
 
 function DoorGamePage() {
   const [selectedDoor, setSelectedDoor] = useState(null);
@@ -52,7 +53,7 @@ function DoorGamePage() {
   };
 
   return (
-    <div>
+    <div className='door-game-container'>
       <h2>Door Game</h2>
       {result === null ? (
         <div>

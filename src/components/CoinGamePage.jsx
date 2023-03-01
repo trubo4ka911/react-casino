@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import "../sass/CoinGamePage.scss";
 
 function CoinGamePage() {
   const [selectedSide, setSelectedSide] = useState('');
@@ -37,7 +38,7 @@ function CoinGamePage() {
   };
 
   return (
-    <div>
+    <div className='coin-game-page'>
       <h2>Coin Game</h2>
       {result === null ? (
         <div>

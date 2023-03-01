@@ -1,0 +1,43 @@
+.coin-game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  
+    .coin-game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      button {
+        background-color: #2196f3;
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+        height: 150px;
+        margin: 2rem;
+        width: 150px;
+        transition: all 0.3s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+  
+      img {
+        max-height: 250px;
+        margin-top: 2rem;
+      }
+    }
+  }
+  

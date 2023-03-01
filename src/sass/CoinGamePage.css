@@ -1,0 +1,37 @@
+.coin-game-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.coin-game-page h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.coin-game-page .coin-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coin-game-page .coin-game-container button {
+  background-color: #2196f3;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 150px;
+  margin: 2rem;
+  width: 150px;
+  transition: all 0.3s ease-in-out;
+}
+.coin-game-page .coin-game-container button:hover {
+  transform: scale(1.2);
+}
+.coin-game-page .coin-game-container img {
+  max-height: 250px;
+  margin-top: 2rem;
+}/*# sourceMappingURL=CoinGamePage.css.map */
