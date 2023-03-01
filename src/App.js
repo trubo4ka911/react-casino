@@ -10,7 +10,7 @@ import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <nav>
         <ul>
           <li>
@@ -40,7 +40,7 @@ function App() {
         <Route path="/try-again" element={<TryAgainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
