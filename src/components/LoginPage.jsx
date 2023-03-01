@@ -38,9 +38,9 @@ function LoginPage() {
           <input type="number" value={deposit} onChange={onDepositChange} />
         </label>
         <br />
-        <button type="button" onClick={onSubmit} disabled={!name || deposit < 1}>
-          Start
-        </button>
+        <button type="submit" disabled={!name || deposit < 1}>
+  Start
+</button>
       </form>
     </div>
   );
