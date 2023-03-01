@@ -17,10 +17,12 @@ function LoginPage() {
     setDeposit(parseInt(e.target.value, 10));
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     dispatch(updateBalance(deposit));
     navigate('/home');
   };
+  
 
   return (
     <div>
