@@ -7,6 +7,7 @@ function HomePage(props) {
   const gameHistory = useSelector((state) => state.gameHistory);
   return (
     <div className='home-page'>
+      <div className='content-overlay'></div>
       <h2>Your balance: {props.balance}</h2>
 
       <h3>Game History:</h3>

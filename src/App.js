@@ -12,7 +12,7 @@ import NotFoundPage from "./components/NotFoundPage";
 function App() {
   return (
     <div className="game-background">
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -30,7 +30,7 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/coin-game" element={<CoinGamePage />} />

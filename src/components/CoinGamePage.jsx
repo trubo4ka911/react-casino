@@ -2,14 +2,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
-import "../sass/CoinGamePage.scss";
+import '../sass/CoinGamePage.scss';
 
 function CoinGamePage() {
   const [selectedSide, setSelectedSide] = useState('');
   const [result, setResult] = useState(null);
   const [winningSide, setWinningSide] = useState(null);
-
-
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,8 +30,6 @@ function CoinGamePage() {
       setResult('lose');
     }
   };
-  
-  
 
   const onTryAgain = () => {
     setSelectedSide('');
@@ -45,30 +41,50 @@ function CoinGamePage() {
   };
 
   return (
-    <div className='coin-game-page'>
+    <div className="coin-game-page">
       <h2>Coin Game</h2>
       {result === null ? (
-        <div>
-          <button type="button" onClick={() => onSideSelected('heads')}>
-            Heads
-          </button>
-          <button type="button" onClick={() => onSideSelected('tails')}>
-            Tails
-          </button>
-          <br />
-          <button type="button" onClick={onPlay} disabled={!selectedSide}>
+        <div className="coin-game-container">
+          <div className="coin-buttons">
+            <button
+              className="coin-button heads"
+              type="button"
+              onClick={() => onSideSelected('heads')}
+            >            </button>
+            <button
+              className="coin-button tails"
+              type="button"
+              onClick={() => onSideSelected('tails')}
+            >            </button>
+          </div>
+          <button
+            className="play-button"
+            type="button"
+            onClick={onPlay}
+            disabled={!selectedSide}
+          >
             Play
           </button>
         </div>
       ) : (
         <div>
-          <p>{`The coin landed on ${winningSide}. You ${result}!`}</p>
-          <button type="button" onClick={onTryAgain}>
-            Try Again
-          </button>
-          <button type="button" onClick={onEndGame}>
-            End Game
-          </button>
+          <p className='text-result'>{`The coin landed on ${winningSide}. You ${result}!`}</p>
+          <div className="game-result-buttons">
+            <button
+              className="action-button try-again-button"
+              type="button"
+              onClick={onTryAgain}
+            >
+              Try Again
+            </button>
+            <button
+              className="action-button end-game-button"
+              type="button"
+              onClick={onEndGame}
+            >
+              End Game
+            </button>
+          </div>
         </div>
       )}
     </div>
