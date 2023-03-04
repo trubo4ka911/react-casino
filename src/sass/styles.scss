@@ -1,7 +1,6 @@
 .game-background {
-  background-image: url("../images/casino.jpg");
-  background-size: cover;
-  background-position: center;
+  background: (url("../images/casino.jpg") center/cover rgba(0, 0, 0, 0.6));
+  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +8,21 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
+  font-family: monospace;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  h2 {
+    margin-bottom: 2rem;
+  }
+  h2,
+  label {
+    background-color: #673ab7;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  form,
+  input {
+    outline: none;
+  }
 }
 
 .game-background img {
