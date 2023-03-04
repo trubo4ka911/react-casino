@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { updateBalance } from '../redux/gameHistorySlice';
+import { updateBalance } from '../redux/balanceSlice';
+
 import "../sass/LoginPage.scss";
 
 function LoginPage() {
@@ -21,7 +22,7 @@ function LoginPage() {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(updateBalance(deposit));
-    navigate('/home');
+    navigate('/home-page');
   };
   
 

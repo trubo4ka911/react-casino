@@ -12,31 +12,12 @@ import NotFoundPage from "./components/NotFoundPage";
 function App() {
   return (
     <div className="game-background">
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/coin-game">Coin Game</Link>
-          </li>
-          <li>
-            <Link to="/door-game">Door Game</Link>
-          </li>
-          <li>
-            <Link to="/number-game">Number Game</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </nav> */}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home-page" element={<HomePage />} />
         <Route path="/coin-game" element={<CoinGamePage />} />
         <Route path="/door-game" element={<DoorGamePage />} />
         <Route path="/number-game" element={<NumberGamePage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/winner" element={<WinnerPage />} />
         <Route path="/try-again" element={<TryAgainPage />} />
         <Route path="*" element={<NotFoundPage />} />

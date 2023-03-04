@@ -117,5 +117,7 @@
   .text-result {
     text-align: center;
     color: white;
+    position: relative;
+    z-index: 1;
   }
 }
