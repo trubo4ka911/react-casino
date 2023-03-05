@@ -14,9 +14,9 @@ const gameHistorySlice = createSlice({
     clearHistory: (state) => {
       state.history = [];
     },
-    // updateBalance: (state, action) => {
-    //   state.balance = action.payload;
-    // },
+    updateBalance: (state, action) => {
+      state.balance = action.payload;
+    },
   },
 });
 

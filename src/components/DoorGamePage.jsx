@@ -54,7 +54,7 @@ function DoorGamePage() {
   };
 
   const onEndGame = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (

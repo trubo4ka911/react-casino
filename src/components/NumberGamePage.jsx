@@ -37,7 +37,7 @@ function NumberGamePage() {
   };
 
   const onEndGame = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (

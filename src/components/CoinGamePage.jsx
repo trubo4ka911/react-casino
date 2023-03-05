@@ -37,7 +37,7 @@ function CoinGamePage() {
   };
 
   const onEndGame = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (
