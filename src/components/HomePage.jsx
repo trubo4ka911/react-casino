@@ -8,13 +8,13 @@ import '../sass/HomePage.scss';
 function HomePage() {
   const [showHistory, setShowHistory] = useState(false);
   const dispatch = useDispatch();
-  const balance = useSelector((state) => state.balance.balance);
+  const balance = useSelector((state) => state.balance.currentBalance);
   const gameHistory = useSelector((state) => state.gameHistory.history);
   const [updatedBalance, setUpdatedBalance] = useState(balance);
 
   useEffect(() => {
     if (gameHistory.length > 0) {
-      setUpdatedBalance(balance);
+      setUpdatedBalance(balance.currentBalance);
     }
   }, [gameHistory, balance]);
 
