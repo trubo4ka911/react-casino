@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import "../sass/HomePage.scss";
 
 function HomePage() {
-  const balance = useSelector((state) => state.balance.balance);
+  const balance = useSelector((state) => state.balance.currentBalance);
+
   const gameHistory = useSelector((state) => state.gameHistory.history);
+  const balanceToDisplay = balance !== null ? balance : 0;
+  console.log(balanceToDisplay);
 
   return (
     <div className='home-page'>
       <div className='content-overlay'></div>
-      <h2>Your balance: {balance}</h2>
+      <h2>Your balance: {balanceToDisplay}</h2>
 
       <h3>Game History:</h3>
       {gameHistory.length > 0 ? (
