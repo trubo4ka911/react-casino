@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { updateBalance } from '../redux/balanceSlice';
+import { setBalance } from '../redux/balanceSlice';
 
 import "../sass/LoginPage.scss";
 
@@ -16,12 +16,13 @@ function LoginPage() {
   };
 
   const onDepositChange = (e) => {
-    setDeposit(parseInt(e.target.value, 10));
-  };
+    setDeposit(parseFloat(e.target.value));
 
+  };
+console.log(deposit);
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateBalance(deposit));
+    dispatch(setBalance({ name: name, balance: deposit }));
     navigate('/home-page');
   };
   
