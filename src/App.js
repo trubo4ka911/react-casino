@@ -8,6 +8,7 @@ import NumberGamePage from "./components/NumberGamePage";
 import WinnerPage from "./components/WinnerPage";
 import TryAgainPage from "./components/TryAgainPage";
 import NotFoundPage from "./components/NotFoundPage";
+import AddFundsPage from "./components/AddFundsPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/winner" element={<WinnerPage />} />
         <Route path="/try-again" element={<TryAgainPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/add-funds" element={<AddFundsPage />} />
       </Routes>
     </div>
   );
