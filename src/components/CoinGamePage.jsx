@@ -21,7 +21,6 @@ function CoinGamePage() {
     setUpdatedBalance(balance);
   }, [balance]);
 
-
   const onSideSelected = (side) => {
     setSelectedSide(side);
   };
