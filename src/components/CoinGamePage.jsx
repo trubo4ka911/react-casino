@@ -65,7 +65,7 @@ function CoinGamePage() {
   return (
     <div className="coin-game-page">
       <h2>Coin Game</h2>
-      <p>Current balance: {updatedBalance}</p>
+      <p className='balance'>Current balance: {updatedBalance}</p>
       <button onClick={handleShowDescription}>Show Game Description</button>
       <Modal isOpen={showDescription}>
 <div className="game-description">
