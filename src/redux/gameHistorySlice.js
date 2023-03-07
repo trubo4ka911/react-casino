@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   history: [],
+  currentBalance: 100, // set an initial balance value
 };
 
 const gameHistorySlice = createSlice({
@@ -15,7 +16,7 @@ const gameHistorySlice = createSlice({
       state.history = [];
     },
     updateBalance: (state, action) => {
-      state.balance = action.payload;
+      state.currentBalance = action.payload;
     },
     resetHistory: (state) => {
       state.history = [];
