@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
@@ -7,14 +7,20 @@ import '../sass/Modal.scss';
 import Modal from './Modal';
 
 function CoinGamePage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const balance = useSelector((state) => state.balance.currentBalance);
+
   const [selectedSide, setSelectedSide] = useState('');
   const [result, setResult] = useState(null);
   const [winningSide, setWinningSide] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
+  const [updatedBalance, setUpdatedBalance] = useState(balance);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const balance = useSelector((state) => state.balance.currentBalance);
+  useEffect(() => {
+    setUpdatedBalance(balance);
+  }, [balance]);
+
 
   const onSideSelected = (side) => {
     setSelectedSide(side);
@@ -23,16 +29,24 @@ function CoinGamePage() {
   const onPlay = () => {
     const randomSide = Math.random() < 0.5 ? 'heads' : 'tails';
     setWinningSide(randomSide);
+    const betAmount = balance * 0.05;
     if (selectedSide === randomSide) {
-      dispatch(updateBalance(balance + 10));
+      dispatch(updateBalance(balance + betAmount));
       dispatch(addGameToHistory({ game: 'Coin', result: 'win' }));
       setResult('win');
     } else {
-      dispatch(updateBalance(balance - 5));
+      dispatch(updateBalance(balance - betAmount));
       dispatch(addGameToHistory({ game: 'Coin', result: 'lose' }));
       setResult('lose');
     }
+    const newBalance = balance - betAmount;
+    if (newBalance <= 0) {
+      navigate('/try-again');
+    } else if (newBalance === balance * 2) {
+      navigate('/winner');
+    }
   };
+  
 
   const onTryAgain = () => {
     setSelectedSide('');
@@ -54,12 +68,12 @@ function CoinGamePage() {
   return (
     <div className="coin-game-page">
       <h2>Coin Game</h2>
-      <p>Current balance: {balance}</p>
+      <p>Current balance: {updatedBalance}</p>
       <button onClick={handleShowDescription}>Show Game Description</button>
       <Modal isOpen={showDescription}>
 <div className="game-description">
 <p>
-Each time you click heads or tails, 5% of your initial deposit is
+Each time you click heads or tails, 5% of your initial balance is
 deducted from your balance. The program generates a random value,
 if your choice matches the generated value, you double your bet,
 otherwise you lose the deducted amount from your balance.
