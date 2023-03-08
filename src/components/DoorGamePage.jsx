@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/components/Modal.scss';
-import "../sass/components/DoorGamePage.scss";
+import '../sass/styles.scss';
 
 function DoorGamePage() {
   const balance = useSelector((state) => state.balance.currentBalance);
@@ -65,7 +64,7 @@ function DoorGamePage() {
     <div className='door-game-page'>
       <h2>Door Game</h2>
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
-      <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
+      <button className='btn-color description-button ' onClick={handleShowDescription}>Show Game Description</button>
 <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
   <div>
     <p>
@@ -99,13 +98,15 @@ function DoorGamePage() {
         </div>)
       : (
         <div>
-          <p>{`The winning door was ${winningDoor}. You ${result}!`}</p>
+          <p className="text-result">{`The winning door was ${winningDoor}. You ${result}!`}</p>
+          <div className="game-result-buttons">
           <button type="button" onClick={onTryAgain}>
             Try Again
           </button>
           <button type="button" onClick={onEndGame}>
             End Game
           </button>
+          </div>
           </div>
       )}
     </div>

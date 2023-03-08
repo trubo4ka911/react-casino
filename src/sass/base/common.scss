@@ -66,10 +66,6 @@ a {
   width: max-content;
   margin: auto;
 }
-.description-button {
-  display: block;
-  margin: 1rem auto;
-}
 
 //Result section
 .text-result {
@@ -115,4 +111,31 @@ a {
       color: $game-result-button-hover-color;
     }
   }
+}
+//Button
+.btn-color {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  color: $white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+
+  width: 10rem;
+  text-align: center;
+
+  &:hover {
+    background-color: $white;
+    color: $primary-color;
+  }
+}
+.description-button {
+  display: block;
+  margin: 1rem auto;
+  width: fit-content;
+  display: block;
 }
