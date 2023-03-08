@@ -1,13 +1,12 @@
 @import "./base/colors.scss";
 @import "./base/common.scss";
+@import "./base/button.scss";
+@import "./components/LoginPage.scss";
+@import "./components/HomePage.scss";
+@import "./components/GameResult.scss";
 @import "./components/AddFundsPage.scss";
 @import "./components/CoinGamePage.scss";
 @import "./components/DoorGamePage.scss";
-@import "./components/GameResult.scss";
-@import "./components/HomePage.scss";
-@import "./components/LoginPage.scss";
 @import "./components/Modal.scss";
 @import "./components/NotFoundPage.scss";
 @import "./components/NumberGamePage.scss";
-@import "./components/TryAgainPage.scss";
-@import "./components/WinnerPage.scss";

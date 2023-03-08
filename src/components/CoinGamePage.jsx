@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/styles.scss';
+import '../sass/components/CoinGamePage.scss';
 
 function CoinGamePage() {
   const dispatch = useDispatch();

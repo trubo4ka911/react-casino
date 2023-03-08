@@ -1,5 +1,6 @@
 @import "../base/colors.scss";
 @import "../base/common.scss";
+@import "../base/button.scss";
 
 .coin-game-page {
   .coin-game-container {
@@ -63,7 +64,7 @@
     }
 
     &:disabled {
-      background-color: #ccc;
+      background-color: $disabled;
       cursor: not-allowed;
     }
   }

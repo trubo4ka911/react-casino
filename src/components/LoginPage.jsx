@@ -29,7 +29,7 @@ console.log(deposit);
 
   return (
     <div className="login-page" >
-      <h2>Welcome to the Game Platform!</h2>
+      <h1>Welcome to the Game Platform!</h1>
       <form>
         <label>
           Name:

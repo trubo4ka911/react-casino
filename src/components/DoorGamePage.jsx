@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/styles.scss';
+import '../sass/components/DoorGamePage.scss';
 
 function DoorGamePage() {
   const balance = useSelector((state) => state.balance.currentBalance);
@@ -100,12 +100,18 @@ function DoorGamePage() {
         <div>
           <p className="text-result">{`The winning door was ${winningDoor}. You ${result}!`}</p>
           <div className="game-result-buttons">
-          <button type="button" onClick={onTryAgain}>
-            Try Again
-          </button>
-          <button type="button" onClick={onEndGame}>
-            End Game
-          </button>
+            <button
+              className="action-button try-again-button"
+              type="button"
+              onClick={onTryAgain}>
+              Try Again
+            </button>
+            <button
+              className="action-button end-game-button"
+              type="button"
+              onClick={onEndGame}>
+              End Game
+            </button>
           </div>
           </div>
       )}

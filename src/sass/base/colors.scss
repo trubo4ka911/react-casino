@@ -5,6 +5,7 @@ $secondary-color: #673ab7;
 // Neutral colors
 $white: #fff;
 $black: #000;
+$disabled: #a9b2b8;
 
 // Game colors
 $coin-heads: url("../../images/heads.png");
@@ -20,9 +21,15 @@ $home-page-button-border: 2px solid transparent;
 $home-page-button-border-hover: 2px solid #2196f3;
 $home-page-button-hover-background: #fff;
 
-// Game result colors
-$game-result-background: #fff;
-$game-result-button-background: #2196f3;
-$game-result-button-color: #fff;
-$game-result-button-hover-background: #fff;
-$game-result-button-hover-color: #2196f3;
+// Game colors
+$game-background: #fff;
+$game-button-background: #2196f3;
+$game-button-color: #fff;
+$game-button-hover-background: #fff;
+$game-button-hover-color: #2196f3;
+$game-shadow: rgba(31, 38, 82, 0.72);
+
+//Modal
+$modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+$modal-background-color: #1976d2;
+$modal-close-button-color: #999;

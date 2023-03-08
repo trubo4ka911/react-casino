@@ -1,3 +1,4 @@
+@import "../base/colors.scss";
 .add-funds-page {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 38, 82, 0.72);
+    background-color: $add-funds-background;
     z-index: -1;
   }
 
@@ -21,7 +22,7 @@
     font-size: 3rem;
     margin-bottom: 2rem;
     text-align: center;
-    color: #fff;
+    color: $white;
   }
 
   form {
@@ -38,12 +39,12 @@
       justify-content: center;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #fff;
+      color: $white;
 
       span {
         margin-top: 1rem;
         font-size: 1rem;
-        color: #fff;
+        color: $white;
       }
     }
 
@@ -62,10 +63,10 @@
     }
 
     button {
-      background-color: #2196f3;
+      background-color: $game-button-background;
       border: none;
       border-radius: 5px;
-      color: #fff;
+      color: $game-button-color;
       font-size: 1.2rem;
       font-weight: bold;
       padding: 1rem 2rem;
@@ -73,8 +74,8 @@
       text-decoration: none;
 
       &:hover {
-        background-color: #fff;
-        color: #2196f3;
+        background-color: $game-background;
+        color: $game-button-hover-color;
       }
     }
   }

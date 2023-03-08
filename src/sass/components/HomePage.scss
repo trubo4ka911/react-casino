@@ -1,3 +1,6 @@
+@import "../base/colors.scss";
+@import "../base/common.scss";
+@import "../base/button.scss";
 .home-page {
   position: relative;
   display: flex;
@@ -6,7 +9,7 @@
   justify-content: center;
   height: 100vh;
   z-index: 1;
-  color: #fff;
+  color: $home-page-button-text;
 
   h2 {
     font-size: 3rem;
@@ -14,8 +17,8 @@
 
   a,
   button {
-    background-color: #2196f3;
-    color: #fff;
+    background-color: $home-page-background;
+    color: $home-page-button-text;
     border: 2px solid transparent;
     border-radius: 0.5rem;
     font-size: 1.2rem;
@@ -27,19 +30,19 @@
     text-align: center;
 
     &:hover {
-      background-color: #fff;
-      color: #2196f3;
-      border: 2px solid #2196f3;
+      background-color: $home-page-button-hover-background;
+      color: $home-page-background;
+      border: $home-page-button-border-hover;
       text-shadow: none;
     }
   }
   .btn-color {
-    background-color: #673ab7;
+    background-color: $secondary-color;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     &:hover {
-      color: #673ab7;
-      border-color: #673ab7;
+      color: $secondary-color;
+      border-color: $secondary-color;
     }
   }
   .btn-history {
