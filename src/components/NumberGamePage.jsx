@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/components/NumberGamePage.scss';
-import '../sass/components/Modal.scss';
-import '../sass/components/GameResult.scss';
+import "../sass/components/LoginPage.scss";
 
 function NumberGamePage() {
   const balance = useSelector((state) => state.balance.currentBalance);
@@ -98,13 +96,15 @@ function NumberGamePage() {
         </div>
       ) : (
         <div>
-          <p>{`The number was ${result === 'win' ? 'correct' : 'incorrect'}. You ${result}!`}</p>
+          <p className="text-result">{`The number was ${result === 'win' ? 'correct' : 'incorrect'}. You ${result}!`}</p>
+          <div className="game-result-buttons">
           <button type='button' onClick={onTryAgain}>
             Try Again
           </button>
           <button type='button' onClick={onEndGame}>
             End Game
           </button>
+          </div>
         </div>
       )}
     </div>

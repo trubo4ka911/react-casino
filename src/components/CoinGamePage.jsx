@@ -90,7 +90,6 @@ function CoinGamePage() {
             </button>
           </div>
           <button
-            className="play-button"
             type="button"
             onClick={onPlay}
             disabled={!selectedSide}>
