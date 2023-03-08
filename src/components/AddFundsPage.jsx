@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateBalance } from '../redux/balanceSlice';
 import { useNavigate } from 'react-router-dom';
-import '../sass/AddFundsPage.scss';
+import '../sass/components/AddFundsPage.scss';
 
 function AddFundsPage() {
   const [amount, setAmount] = useState('');

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/NumberGamePage.scss';
-import '../sass/Modal.scss';
-import '../sass/GameResult.scss';
+import '../sass/components/NumberGamePage.scss';
+import '../sass/components/Modal.scss';
+import '../sass/components/GameResult.scss';
 
 function NumberGamePage() {
   const balance = useSelector((state) => state.balance.currentBalance);

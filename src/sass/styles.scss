@@ -1,47 +1,13 @@
-.game-background {
-  background: (url("../images/casino.jpg") center/cover rgba(0, 0, 0, 0.6));
-  color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  font-family: monospace;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  h2 {
-    margin-bottom: 2rem;
-  }
-  h2,
-  label {
-    background-color: #673ab7;
-    width: fit-content;
-    margin: 2rem auto;
-    padding: 1rem 3rem;
-    border-radius: 0.5rem;
-  }
-  form,
-  input {
-    outline: none;
-  }
-}
-
-.game-background img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-button,
-a {
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-.balance {
-  width: max-content;
-  margin: auto;
-}
-.description-button {
-  display: block;
-  margin: 1rem auto;
-}
+@import "./base/colors.scss";
+@import "./base/common.scss";
+@import "./components/AddFundsPage.scss";
+@import "./components/CoinGamePage.scss";
+@import "./components/DoorGamePage.scss";
+@import "./components/GameResult.scss";
+@import "./components/HomePage.scss";
+@import "./components/LoginPage.scss";
+@import "./components/Modal.scss";
+@import "./components/NotFoundPage.scss";
+@import "./components/NumberGamePage.scss";
+@import "./components/TryAgainPage.scss";
+@import "./components/WinnerPage.scss";

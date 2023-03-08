@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/Modal.scss';
+import '../sass/components/Modal.scss';
 
 function Modal({ isOpen, handleClose, children }) {
   return (

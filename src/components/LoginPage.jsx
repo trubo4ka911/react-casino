@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setBalance } from '../redux/balanceSlice';
 
-import "../sass/LoginPage.scss";
+import "../sass/components/LoginPage.scss";
 
 function LoginPage() {
   const [name, setName] = useState('');

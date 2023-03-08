@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/Modal.scss';
-import "../sass/DoorGamePage.scss";
+import '../sass/components/Modal.scss';
+import "../sass/components/DoorGamePage.scss";
 
 function DoorGamePage() {
   const balance = useSelector((state) => state.balance.currentBalance);

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { clearHistory } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/HomePage.scss';
+import '../sass/components/HomePage.scss';
 
 function HomePage() {
   const [showHistory, setShowHistory] = useState(false);
