@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import Modal from './Modal';
 import '../sass/CoinGamePage.scss';
 import '../sass/Modal.scss';
-import Modal from './Modal';
+import '../sass/GameResult.scss';
 
 function CoinGamePage() {
   const dispatch = useDispatch();
@@ -52,7 +53,8 @@ function CoinGamePage() {
   };
 
   const onEndGame = () => {
-    navigate('/', { updatedBalance });
+    dispatch(updateBalance(updatedBalance))
+    navigate('/home-page', { updatedBalance });
   };
 
   const handleShowDescription = () => {

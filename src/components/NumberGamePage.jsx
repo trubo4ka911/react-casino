@@ -1,64 +1,89 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
-import "../sass/NumberGamePage.scss";
+import '../sass/NumberGamePage.scss';
 
 function NumberGamePage() {
-  const [guess, setGuess] = useState('');
-  const [result, setResult] = useState(null);
-  const [winningNumber, setWinningNumber] = useState(null);
+  const balance = useSelector((state) => state.balance.currentBalance);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const balance = useSelector((state) => state.balance);
+
+  const [guess, setGuess] = useState('');
+  const [result, setResult] = useState(null);
+  const [updatedBalance, setUpdatedBalance] = useState(balance);
 
   const onGuessChange = (event) => {
-    setGuess(event.target.value);
+    const input = event.target.value;
+    if (/^\d$/.test(input)) {
+      setGuess(input);
+    }
   };
 
   const onPlay = () => {
-    const number = Math.floor(Math.random() * 10);
-    setWinningNumber(number);
-    if (+guess === number) {
-      dispatch(updateBalance(balance + 10));
+    const randomNumber = Math.floor(Math.random() * 10);
+    const betAmount = balance * 0.05;
+    if (+guess === randomNumber) {
+      dispatch(updateBalance(balance + betAmount * 10));
       dispatch(addGameToHistory({ game: 'Number', result: 'win' }));
       setResult('win');
     } else {
-      dispatch(updateBalance(balance - 5));
+      dispatch(updateBalance(balance - betAmount));
       dispatch(addGameToHistory({ game: 'Number', result: 'lose' }));
       setResult('lose');
     }
+    const newBalance = +guess === randomNumber ? updatedBalance + betAmount * 9 : updatedBalance - betAmount;
+    if (newBalance <= 0) {
+      navigate('/try-again');
+    } else if (newBalance >= balance * 2) {
+      navigate('/winner');
+    }
+    setUpdatedBalance(newBalance);
   };
 
   const onTryAgain = () => {
     setGuess('');
     setResult(null);
-    setWinningNumber(null);
   };
 
   const onEndGame = () => {
-    navigate('/');
+    navigate('/', { updatedBalance: balance });
   };
 
   return (
     <div className='number-game-page'>
       <h2>Number Game</h2>
+      <p className='balance'>Current balance: ${updatedBalance.toFixed(2)}</p>
       {result === null ? (
-        <div>
-          <p>Guess a number from 0 to 9:</p>
-          <input type="number" value={guess} onChange={onGuessChange} />
+        <div className='number-game-container'>
+          <label htmlFor='guess'>Guess a number between 0 and 9:</label>
+          <input 
+            id='guess'
+            type='text' 
+            value={guess} 
+            onChange={onGuessChange} 
+            maxLength='1'
+            placeholder='0-9'
+            />
           <br />
-          <button type="button" onClick={onPlay} disabled={!guess}>
-            Play
+          <button 
+            type='button' 
+            onClick={onPlay} 
+            disabled={guess === ''}>
+            Try
           </button>
+          <div className='link-buttons'>
+            <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+            <Link className='btn-color' to='/'>Log Out</Link>
+          </div>
         </div>
       ) : (
         <div>
-          <p>{`The winning number was ${winningNumber}. You ${result}!`}</p>
-          <button type="button" onClick={onTryAgain}>
+          <p>{`The number was ${result === 'win' ? 'correct' : 'incorrect'}. You ${result}!`}</p>
+          <button type='button' onClick={onTryAgain}>
             Try Again
           </button>
-          <button type="button" onClick={onEndGame}>
+          <button type='button' onClick={onEndGame}>
             End Game
           </button>
         </div>

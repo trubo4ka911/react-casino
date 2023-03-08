@@ -16,7 +16,9 @@
   h2,
   label {
     background-color: #673ab7;
-    padding: 0.5rem;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 1rem 3rem;
     border-radius: 0.5rem;
   }
   form,
@@ -34,4 +36,12 @@ button,
 a {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.balance {
+  width: max-content;
+  margin: auto;
+}
+.description-button {
+  display: block;
+  margin: 1rem auto;
 }
