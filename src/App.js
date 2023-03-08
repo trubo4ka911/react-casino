@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
-import "./sass/styles.scss";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import CoinGamePage from "./components/CoinGamePage";
@@ -9,6 +8,7 @@ import WinnerPage from "./components/WinnerPage";
 import TryAgainPage from "./components/TryAgainPage";
 import NotFoundPage from "./components/NotFoundPage";
 import AddFundsPage from "./components/AddFundsPage";
+import "./sass/styles.scss";
 
 function App() {
   return (

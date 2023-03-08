@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
-import '../sass/CoinGamePage.scss';
 import '../sass/Modal.scss';
+import '../sass/CoinGamePage.scss';
 import '../sass/GameResult.scss';
 
 function CoinGamePage() {
@@ -70,14 +70,14 @@ function CoinGamePage() {
       <h2>Coin Game</h2>
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
       <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
-      <Modal isOpen={showDescription}>
-        <div className="game-description">
-          <p>
-            Each time you click heads or tails, 5% of your initial balance is deducted from your balance. The program generates a random value, if your choice matches the generated value, you double your bet, otherwise you lose the deducted amount from your balance.
-          </p>
-          <button className='close-button' onClick={handleCloseDescription}>Close</button>
-        </div>
-      </Modal>
+<Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
+  <div>
+    <p>
+      Each time you click heads or tails, 5% of your initial balance is deducted from your balance. The program generates a random value, if your choice matches the generated value, you double your bet, otherwise you lose the deducted amount from your balance.
+    </p>
+  </div>
+</Modal>
+
       {result === null ? (
         <div className="coin-game-container">
           <div className="coin-buttons">

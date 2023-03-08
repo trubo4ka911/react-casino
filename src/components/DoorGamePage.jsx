@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import Modal from './Modal';
+import '../sass/Modal.scss';
 import "../sass/DoorGamePage.scss";
 
 function DoorGamePage() {
@@ -13,6 +15,7 @@ function DoorGamePage() {
   const [result, setResult] = useState(null);
   const [winningDoor, setWinningDoor] = useState(null);
   const [updatedBalance, setUpdatedBalance] = useState(balance);  
+  const [showDescription, setShowDescription] = useState(false);
 
   const doors = ['A', 'B', 'C'];
 
@@ -51,11 +54,25 @@ function DoorGamePage() {
   const onEndGame = () => {
     navigate('/', { updatedBalance: balance });
   };
+  const handleShowDescription = () => {
+    setShowDescription(true);
+  };
 
+  const handleCloseDescription = () => {
+    setShowDescription(false);
+  };
   return (
     <div className='door-game-page'>
       <h2>Door Game</h2>
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
+      <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
+<Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
+  <div>
+    <p>
+    Every time you click on one of the doors, 5% of your initial deposit is deducted from your balance. The program generates a random value from 1 to 3, if your choice matches the generated value, you triple your bet, otherwise you lose the deducted amount from your balance.
+    </p>
+  </div>
+</Modal>
       {result === null ? (
         <div className='door-game-container'>
           <p>Select a door:</p>
