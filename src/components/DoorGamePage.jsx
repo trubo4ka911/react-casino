@@ -66,13 +66,13 @@ function DoorGamePage() {
       <p className='balance'>Deposit: {deposit.toFixed(2)}</p>
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
       <button className='btn-color description-button ' onClick={handleShowDescription}>Show Game Description</button>
-<Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
-  <div>
-    <p>
-    Every time you click on one of the doors, 5% of your initial deposit is deducted from your balance. The program generates a random value from 1 to 3, if your choice matches the generated value, you triple your bet, otherwise you lose the deducted amount from your balance.
-    </p>
-  </div>
-</Modal>
+      <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
+        <div>
+          <p>
+            Every time you click on one of the doors, 5% of your initial deposit is deducted from your balance. The program generates a random value from 1 to 3, if your choice matches the generated value, you triple your bet, otherwise you lose the deducted amount from your balance.
+          </p>
+        </div>
+      </Modal>
       {result === null ? (
         <div className='door-game-container'>
           <p>Select a door:</p>
@@ -93,7 +93,7 @@ function DoorGamePage() {
             Play
           </button>
           <div className='link-buttons'>
-          <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+            <Link className='btn-color' to='/add-funds'>Add Funds</Link>
             <Link className='btn-color' to='/home-page'>Change game</Link>
             <Link className='btn-color' to='/'>Log Out</Link>
           </div>
