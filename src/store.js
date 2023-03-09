@@ -1,14 +1,12 @@
-import { createStore, combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import balanceReducer from "./redux/balanceSlice";
 import gameHistoryReducer from "./redux/gameHistorySlice";
-import userReducer from "./redux/userSlice";
 
-const rootReducer = combineReducers({
-  balance: balanceReducer,
-  gameHistory: gameHistoryReducer,
-  user: userReducer,
+const store = configureStore({
+  reducer: {
+    balance: balanceReducer,
+    gameHistory: gameHistoryReducer,
+  },
 });
-
-const store = createStore(rootReducer);
 
 export default store;
