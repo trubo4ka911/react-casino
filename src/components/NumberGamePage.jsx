@@ -6,6 +6,7 @@ import Modal from './Modal';
 import "../sass/components/LoginPage.scss";
 
 function NumberGamePage() {
+  const deposit = useSelector((state) => state.balance.deposit);
   const balance = useSelector((state) => state.balance.currentBalance);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function NumberGamePage() {
 
   const onPlay = () => {
     const randomNumber = Math.floor(Math.random() * 10);
-    const betAmount = balance * 0.05;
+    const betAmount = deposit * 0.05;
     if (+guess === randomNumber) {
       dispatch(updateGameHistoryBalance(balance + betAmount * 10));
       dispatch(addGameToHistory({ game: 'Number', result: 'win' }));
@@ -37,7 +38,7 @@ function NumberGamePage() {
     const newBalance = +guess === randomNumber ? updatedBalance + betAmount * 9 : updatedBalance - betAmount;
     if (newBalance <= 0) {
       navigate('/try-again');
-    } else if (newBalance >= balance * 2) {
+    } else if (newBalance >= deposit * 2) {
       navigate('/winner');
     }
     setUpdatedBalance(newBalance);
@@ -62,7 +63,8 @@ function NumberGamePage() {
   return (
     <div className='number-game-page'>
       <h2>Number Game</h2>
-      <p className='balance'>Current balance: ${updatedBalance.toFixed(2)}</p>
+      <p className='balance'>Deposit: {deposit.toFixed(2)}</p>
+      <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>      
       <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
       <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
   <div>
