@@ -1,0 +1,28 @@
+@import "../base/colors.scss";
+@import "../base/common.scss";
+@import "../base/button.scss";
+
+.winner-page {
+  @include flexbox();
+  flex-direction: column;
+  height: 100vh;
+
+  h2 {
+    margin-top: 3rem;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  p {
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  a {
+    @include button-style();
+    margin-top: 3rem;
+  }
+}
