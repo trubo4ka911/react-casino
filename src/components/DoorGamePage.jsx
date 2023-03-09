@@ -51,7 +51,7 @@ function DoorGamePage() {
   };
 
   const onEndGame = () => {
-    navigate('/', { updatedBalance: balance });
+    navigate('/home-page', { updatedBalance: balance });
   };
   const handleShowDescription = () => {
     setShowDescription(true);
