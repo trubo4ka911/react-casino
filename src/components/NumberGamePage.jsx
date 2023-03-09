@@ -67,12 +67,12 @@ function NumberGamePage() {
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>      
       <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
       <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
-  <div>
-    <p>
-    Every time you click on the "Try" button, 5% of your initial deposit is deducted from your balance. The program generates a random value between 1 and 10, if your choice matches the generated value, you will receive ten times the amount you bet, otherwise you lose the deducted amount from your balance.
-    </p>
-  </div>
-</Modal>
+        <div>
+            <p>
+              Every time you click on the "Try" button, 5% of your initial deposit is deducted from your balance. The program generates a random value between 1 and 10, if your choice matches the generated value, you will receive ten times the amount you bet, otherwise you lose the deducted amount from your balance.
+            </p>
+        </div>
+      </Modal>
       {result === null ? (
         <div className='number-game-container'>
           <label id='guess-label' htmlFor='guess'>Guess a number between 0 and 9:</label>
@@ -92,7 +92,7 @@ function NumberGamePage() {
             Try
           </button>
           <div className='link-buttons'>
-          <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+            <Link className='btn-color' to='/add-funds'>Add Funds</Link>
             <Link className='btn-color' to='/home-page'>Change game</Link>
             <Link className='btn-color' to='/'>Log Out</Link>
           </div>
