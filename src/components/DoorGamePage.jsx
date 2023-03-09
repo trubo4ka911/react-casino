@@ -93,7 +93,8 @@ function DoorGamePage() {
             Play
           </button>
           <div className='link-buttons'>
-            <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+          <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+            <Link className='btn-color' to='/home-page'>Change game</Link>
             <Link className='btn-color' to='/'>Log Out</Link>
           </div>
         </div>)
