@@ -1,49 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import { addGameToHistory, updateGameHistoryBalance} from '../redux/gameHistorySlice';
+import { setDeposit, updateBalanceAmount } from '../redux/balanceSlice';
+
 import Modal from './Modal';
 import '../sass/components/CoinGamePage.scss';
 
 function CoinGamePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const balance = useSelector((state) => state.balance.currentBalance);
+  const deposit = useSelector((state) => state.balance.deposit);
+  const currentBalance = useSelector((state) => state.balance.currentBalance);
+  const [updatedBalance, setUpdatedBalance] = useState(currentBalance);
 
   const [selectedSide, setSelectedSide] = useState('');
   const [result, setResult] = useState(null);
   const [winningSide, setWinningSide] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
-  const [updatedBalance, setUpdatedBalance] = useState(balance);
 
   const onSideSelected = (side) => {
     setSelectedSide(side);
   };
-
   const onPlay = () => {
-    const randomSide = Math.random() < 0.5 ? 'heads' : 'tails';
+    const randomSide = Math.random() < 0.5 ? "heads" : "tails";
     setWinningSide(randomSide);
-    const betAmount = updatedBalance * 0.05;
-    if (selectedSide === randomSide) {
-      dispatch(updateBalance(updatedBalance + betAmount * 2));
-      dispatch(addGameToHistory({ game: 'Coin', result: 'win' }));
-      setResult('win');
-    } else {
-      dispatch(updateBalance(updatedBalance - betAmount));
-      dispatch(addGameToHistory({ game: 'Coin', result: 'lose' }));
-      setResult('lose');
-    }
-    const newBalance = selectedSide === randomSide ? updatedBalance + betAmount * 2 : updatedBalance - betAmount;
+    const betAmount = deposit * 0.05;
+    const isWin = selectedSide === winningSide;
+    const multiplier = isWin ? 2 : -1;
+    const amountWon = isWin ? betAmount * 2 : betAmount;
+    const newBalance = updatedBalance + amountWon * multiplier;
+    dispatch(updateBalanceAmount(amountWon * multiplier));
+    dispatch(updateGameHistoryBalance(newBalance));
+    dispatch(addGameToHistory({ game: "Coin", result: isWin ? "win" : "lose" }));
+    setResult(isWin ? "win" : "lose");
+  
     if (newBalance <= 0) {
-      navigate('/try-again');
-    } else if (newBalance >= balance * 2) {
-      navigate('/winner');
+      navigate("/try-again");
+    } else if (newBalance >= deposit * 2) {
+      navigate("/winner");
     }
-    setUpdatedBalance(newBalance);
   };
   
-  console.log(balance);
-  
+
+  useEffect(() => {
+    setUpdatedBalance(currentBalance);
+  }, [currentBalance]);
 
   const onTryAgain = () => {
     setSelectedSide('');
@@ -51,8 +53,8 @@ function CoinGamePage() {
   };
 
   const onEndGame = () => {
-    dispatch(updateBalance(updatedBalance))
-    navigate('/home-page', { updatedBalance });
+    dispatch(setDeposit({ name: '', deposit: updatedBalance }));
+    navigate('/home-page');
   };
 
   const handleShowDescription = () => {
@@ -63,11 +65,15 @@ function CoinGamePage() {
     setShowDescription(false);
   };
 
+  console.log(deposit, currentBalance);
   return (
     <div className="coin-game-page">
       <h2>Coin Game</h2>
-      <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
-      <button className='description-button' onClick={handleShowDescription}>Show Game Description</button>
+      <p className="balance">Deposit: {deposit.toFixed(2)}</p>
+      <p className="balance">Current balance: {updatedBalance.toFixed(2)}</p>
+      <button className="description-button" onClick={handleShowDescription}>
+        Show Game Description
+      </button>
 <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
   <div>
     <p>
@@ -124,4 +130,3 @@ function CoinGamePage() {
   
   }
   export default CoinGamePage;
-      

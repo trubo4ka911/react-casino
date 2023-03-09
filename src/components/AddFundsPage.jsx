@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateBalance } from '../redux/balanceSlice';
+import { updateBalanceAmount } from '../redux/balanceSlice';
 import { useNavigate } from 'react-router-dom';
 import '../sass/components/AddFundsPage.scss';
 
@@ -25,7 +25,7 @@ function AddFundsPage() {
     }
 
     // Update balance and navigate back to home page
-    dispatch(updateBalance(Number(amount)));
+    dispatch(updateBalanceAmount(Number(amount)));
     navigate('/home-page');
   };
 

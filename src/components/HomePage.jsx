@@ -13,10 +13,8 @@ function HomePage() {
   const [updatedBalance, setUpdatedBalance] = useState(balance);
 
   useEffect(() => {
-    if (gameHistory.length > 0) {
-      setUpdatedBalance(balance.currentBalance);
-    }
-  }, [gameHistory, balance]);
+    setUpdatedBalance(balance);
+  }, [balance]);
 
   const handleShowHistory = () => {
     setShowHistory(true);
@@ -30,6 +28,7 @@ function HomePage() {
     dispatch(clearHistory());
     setShowHistory(false);
   };
+
 
   return (
     <div className='home-page'>

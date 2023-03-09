@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import { addGameToHistory, updateGameHistoryBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
 import "../sass/components/LoginPage.scss";
 
@@ -26,11 +26,11 @@ function NumberGamePage() {
     const randomNumber = Math.floor(Math.random() * 10);
     const betAmount = balance * 0.05;
     if (+guess === randomNumber) {
-      dispatch(updateBalance(balance + betAmount * 10));
+      dispatch(updateGameHistoryBalance(balance + betAmount * 10));
       dispatch(addGameToHistory({ game: 'Number', result: 'win' }));
       setResult('win');
     } else {
-      dispatch(updateBalance(balance - betAmount));
+      dispatch(updateGameHistoryBalance(balance - betAmount));
       dispatch(addGameToHistory({ game: 'Number', result: 'lose' }));
       setResult('lose');
     }

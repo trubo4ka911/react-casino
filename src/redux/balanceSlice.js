@@ -1,20 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { users: [], currentBalance: null };
+const initialState = {
+  users: [],
+  currentBalance: null,
+  deposit: 0,
+};
 
 const balanceSlice = createSlice({
   name: "balance",
   initialState,
   reducers: {
-    setBalance: (state, action) => {
-      const { name, balance } = action.payload;
-      state.currentBalance = balance;
+    setDeposit: (state, action) => {
+      const { name, deposit } = action.payload;
+      state.deposit = deposit;
+      state.currentBalance = deposit;
     },
-    updateBalance: (state, action) => {
+    updateBalanceAmount: (state, action) => {
       state.currentBalance += action.payload;
     },
   },
 });
 
-export const { setBalance, updateBalance } = balanceSlice.actions;
+export const { setDeposit, updateBalanceAmount } = balanceSlice.actions;
 export default balanceSlice.reducer;

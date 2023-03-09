@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { addGameToHistory, updateBalance } from '../redux/gameHistorySlice';
+import { addGameToHistory, updateGameHistoryBalance } from '../redux/gameHistorySlice';
 import Modal from './Modal';
 import '../sass/components/DoorGamePage.scss';
 
@@ -28,11 +28,11 @@ function DoorGamePage() {
     setWinningDoor(winningDoor);
     const betAmount = balance * 0.05;
     if (selectedDoor === winningDoor) {
-      dispatch(updateBalance(balance + betAmount * 3));
+      dispatch(updateGameHistoryBalance(balance + betAmount * 3));
       dispatch(addGameToHistory({ game: 'Door', result: 'win' }));
       setResult('win');
     } else {
-      dispatch(updateBalance(balance - betAmount));
+      dispatch(updateGameHistoryBalance(balance - betAmount));
       dispatch(addGameToHistory({ game: 'Door', result: 'lose' }));
       setResult('lose');
     }

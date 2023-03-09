@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 const initialState = {
   history: [],
@@ -15,7 +16,7 @@ const gameHistorySlice = createSlice({
     clearHistory: (state) => {
       state.history = [];
     },
-    updateBalance: (state, action) => {
+    updateGameHistoryBalance: (state, action) => {
       state.currentBalance = action.payload;
     },
     resetHistory: (state) => {
@@ -24,7 +25,11 @@ const gameHistorySlice = createSlice({
   },
 });
 
-export const { addGameToHistory, clearHistory, updateBalance, resetHistory } =
-  gameHistorySlice.actions;
+export const {
+  addGameToHistory,
+  clearHistory,
+  updateGameHistoryBalance,
+  resetHistory,
+} = gameHistorySlice.actions;
 
 export default gameHistorySlice.reducer;

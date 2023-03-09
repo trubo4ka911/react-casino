@@ -1,49 +1,49 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setBalance } from '../redux/balanceSlice';
-
+import { setDeposit } from '../redux/balanceSlice';
 import "../sass/components/LoginPage.scss";
 
 function LoginPage() {
-  const [name, setName] = useState('');
-  const [deposit, setDeposit] = useState(0);
+  const [formData, setFormData] = useState({ name: '', deposit: '' });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onNameChange = (e) => {
-    setName(e.target.value);
+    setFormData({ ...formData, name: e.target.value });
   };
 
   const onDepositChange = (e) => {
-    setDeposit(parseFloat(e.target.value));
-
+    setFormData({ ...formData, deposit: parseFloat(e.target.value) });
   };
-console.log(deposit);
+
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(setBalance({ name: name, balance: deposit }));
-    navigate('/home-page');
+    const { name, deposit } = formData;
+    if (name && deposit >= 1) {
+      dispatch(setDeposit({ name: name, deposit: deposit }));
+      navigate('/home-page');
+    }
   };
-  
 
   return (
-    <div className="login-page" >
+    <div className="login-page">
       <h1>Welcome to the Game Platform!</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <label>
           Name:
-          <input type="text" value={name} onChange={onNameChange} />
+          <input type="text" value={formData.name} onChange={onNameChange} />
         </label>
         <br />
         <label>
           Deposit:
-          <input type="number" value={deposit} onChange={onDepositChange} />
+          <input type="number" value={formData.deposit} onChange={onDepositChange} />
         </label>
         <br />
-        <button type="submit" disabled={!name || deposit < 1} onClick={onSubmit}>
-  Start
-</button>
+        <button type="submit" disabled={!formData.name || !formData.deposit}>
+          Start
+        </button>
       </form>
     </div>
   );
