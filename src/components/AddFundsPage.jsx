@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateBalanceAmount } from '../redux/balanceSlice';
+import { useDispatch, useSelector  } from 'react-redux';
+import { setDeposit  } from '../redux/balanceSlice';
 import { useNavigate } from 'react-router-dom';
 import '../sass/components/AddFundsPage.scss';
 
@@ -10,6 +10,7 @@ function AddFundsPage() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const deposit = useSelector((state) => state.balance.deposit);
 
   const handleInputChange = (event) => {
     setAmount(event.target.value);
@@ -25,7 +26,7 @@ function AddFundsPage() {
     }
 
     // Update balance and navigate back to home page
-    dispatch(updateBalanceAmount(Number(amount)));
+    dispatch(setDeposit({ deposit: deposit + Number(amount) }));
     navigate('/home-page');
   };
 
