@@ -1,0 +1,24 @@
+@import "../base/colors";
+@import "../base/common.scss";
+@import "../base/button";
+
+.try-again-page {
+  @include flexbox();
+  flex-direction: column;
+  height: 100vh;
+  background-color: $game-background;
+  padding: 2rem;
+
+  h2 {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  a {
+    @include button-style();
+    margin-top: 3rem;
+    align-self: center;
+  }
+}
