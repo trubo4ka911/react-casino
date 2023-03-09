@@ -6,6 +6,7 @@ import Modal from './Modal';
 import '../sass/components/DoorGamePage.scss';
 
 function DoorGamePage() {
+  const deposit = useSelector((state) => state.balance.deposit);
   const balance = useSelector((state) => state.balance.currentBalance);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function DoorGamePage() {
     const winningDoor = doors[Math.floor(Math.random() * doors.length)];
     const remainingDoors = doors.filter((door) => door !== selectedDoor && door !== winningDoor);
     setWinningDoor(winningDoor);
-    const betAmount = balance * 0.05;
+    const betAmount = deposit * 0.05;
     if (selectedDoor === winningDoor) {
       dispatch(updateGameHistoryBalance(balance + betAmount * 3));
       dispatch(addGameToHistory({ game: 'Door', result: 'win' }));
@@ -36,14 +37,14 @@ function DoorGamePage() {
       dispatch(addGameToHistory({ game: 'Door', result: 'lose' }));
       setResult('lose');
     }
-    const newBalance = selectedDoor === selectedDoor ? updatedBalance + betAmount * 2 : updatedBalance - betAmount;
+    const newBalance = selectedDoor === winningDoor ? updatedBalance + betAmount * 2 : updatedBalance - betAmount;
     if (newBalance <= 0) {
       navigate('/try-again');
-    } else if (newBalance >= balance * 2) {
+    } else if (newBalance >= deposit * 2) {
       navigate('/winner');
     }
     setUpdatedBalance(newBalance);
-  };  
+  };   
 
   const onTryAgain = () => {
     setSelectedDoor(null);
@@ -63,6 +64,7 @@ function DoorGamePage() {
   return (
     <div className='door-game-page'>
       <h2>Door Game</h2>
+      <p className='balance'>Deposit: {deposit.toFixed(2)}</p>
       <p className='balance'>Current balance: {updatedBalance.toFixed(2)}</p>
       <button className='btn-color description-button ' onClick={handleShowDescription}>Show Game Description</button>
 <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
