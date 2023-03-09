@@ -65,7 +65,6 @@ function CoinGamePage() {
     setShowDescription(false);
   };
 
-  console.log(deposit, currentBalance);
   return (
     <div className="coin-game-page">
       <h2>Coin Game</h2>
