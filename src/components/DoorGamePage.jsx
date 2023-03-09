@@ -24,8 +24,7 @@ function DoorGamePage() {
   };
 
   const onPlay = () => {
-    const winningDoor = doors[Math.floor(Math.random() * doors.length)];
-    const remainingDoors = doors.filter((door) => door !== selectedDoor && door !== winningDoor);
+    const winningDoor = doors[Math.floor(Math.random() * doors.length)];    
     setWinningDoor(winningDoor);
     const betAmount = deposit * 0.05;
     if (selectedDoor === winningDoor) {
