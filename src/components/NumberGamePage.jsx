@@ -75,7 +75,7 @@ function NumberGamePage() {
 </Modal>
       {result === null ? (
         <div className='number-game-container'>
-          <label htmlFor='guess'>Guess a number between 0 and 9:</label>
+          <label id='guess-label' htmlFor='guess'>Guess a number between 0 and 9:</label>
           <input 
             id='guess'
             type='text' 
@@ -92,7 +92,8 @@ function NumberGamePage() {
             Try
           </button>
           <div className='link-buttons'>
-            <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+          <Link className='btn-color' to='/add-funds'>Add Funds</Link>
+            <Link className='btn-color' to='/home-page'>Change game</Link>
             <Link className='btn-color' to='/'>Log Out</Link>
           </div>
         </div>
