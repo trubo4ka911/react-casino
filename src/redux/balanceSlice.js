@@ -11,7 +11,7 @@ const balanceSlice = createSlice({
   initialState,
   reducers: {
     setDeposit: (state, action) => {
-      const { name, deposit } = action.payload;
+      const { deposit } = action.payload;
       state.deposit = deposit;
       state.currentBalance = deposit;
     },
