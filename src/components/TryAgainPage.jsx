@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import "../sass/components/TryAgainPage.scss";
 
 function TryAgainPage() {
   return (
-    <div>
+    <div className='try-again-page'>
       <h2>Game Over</h2>
-      <Link to="/login">Try Again</Link>
+      <Link to="/">Try Again</Link>
     </div>
   );
 }
