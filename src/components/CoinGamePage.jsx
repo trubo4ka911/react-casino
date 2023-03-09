@@ -74,14 +74,13 @@ function CoinGamePage() {
       <button className="description-button" onClick={handleShowDescription}>
         Show Game Description
       </button>
-<Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
-  <div>
-    <p>
-      Each time you click heads or tails, 5% of your initial balance is deducted from your balance. The program generates a random value, if your choice matches the generated value, you double your bet, otherwise you lose the deducted amount from your balance.
-    </p>
-  </div>
-</Modal>
-
+      <Modal isOpen={showDescription} handleClose={handleCloseDescription} className="modal-overlay">
+          <div>
+                <p>
+                        Each time you click heads or tails, 5% of your initial balance is deducted from your balance. The program generates a random value, if your choice matches the generated value, you double your bet, otherwise you lose the deducted amount from your balance.
+                </p>
+          </div>
+        </Modal>
       {result === null ? (
         <div className="coin-game-container">
           <div className="coin-buttons">
